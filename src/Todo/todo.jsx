@@ -205,7 +205,8 @@ const TodoList = () => {
       setIsDeleteAll(true);
       renderArray([]);
     } else {
-      const deleteTask = todoArray.filter((v, ind) => {        
+      // const deleteTask = todoArray.filter((v, ind) => {
+      const deleteTask = todoArray.filter((v, ind) => {
         return v?.isSelected !== true;
       });
       setTodoArray(deleteTask);
@@ -217,7 +218,7 @@ const TodoList = () => {
   };
   return (
     <>
-      <div className="lg:container">
+      <div className="w-full lg:w-6/12 mx-auto">
         <h1 className="text-3xl">TodoInput</h1>
         <div className="my-5 border-2 rounded-md">
           <div className="my-4">
@@ -228,8 +229,8 @@ const TodoList = () => {
               placeholder="New Todo"
               className={
                 !errors?.input
-                  ? "p-4 w-96 rounded-md border-[1px] border-solid border-gray-300"
-                  : "p-4 w-96 rounded-md border-[1px] border-solid border-red-600"
+                  ? "p-4 w-9/12 rounded-md border-[1px] border-solid border-gray-300"
+                  : "p-4 w-9/12 rounded-md border-[1px] border-solid border-red-600"
               }
               onChange={(e) => handleOnchange(e)}
             />
@@ -240,7 +241,7 @@ const TodoList = () => {
           <div className="my-4">
             <button
               type="submit"
-              className="p-3 rounded-md w-96 mx-5 bg-blue-800 text-white font-semibold text-lg"
+              className="p-3 rounded-md w-9/12 mx-5 bg-blue-800 text-white font-semibold text-lg"
               onClick={handleOnClick}
             >
               {edited ? "Update" : "Add"}
@@ -263,7 +264,7 @@ const TodoList = () => {
             )}
           </span>
           <button
-            className="bg-blue-800 w-32 text-white rounded-md mx-4"
+            className="bg-blue-800 lg:w-32 sm:w-28 text-white rounded-md lg:mx-4 sm:mx-2 md:mx-3"
             onClick={() => {
               handleDisplay("all");
             }}
@@ -271,7 +272,7 @@ const TodoList = () => {
             All
           </button>
           <button
-            className="bg-blue-800 w-32 text-white rounded-md mx-4"
+            className="bg-blue-800 lg:w-32 sm:w-28 text-white rounded-md lg:mx-4 sm:mx-2 md:mx-3"
             onClick={() => {
               handleDisplay("done");
             }}
@@ -279,7 +280,7 @@ const TodoList = () => {
             Done
           </button>
           <button
-            className="bg-blue-800 w-32 text-white rounded-md mx-4"
+            className="bg-blue-800 lg:w-32 sm:w-28 text-white rounded-md lg:mx-4 sm:mx-2 md:mx-3"
             onClick={() => {
               handleDisplay("todo");
             }}
@@ -361,19 +362,19 @@ const TodoList = () => {
         </div>
         <div className="my-4 flex justify-around">
           <button
-            className="bg-red-700 text-white p-3 w-40 rounded-md"
+            className="bg-red-700 text-white p-3 lg:w-40 sm:w-32 rounded-md"
             onClick={(e) => handleDeleteSelectedTask(e)}
           >
             Delete
           </button>
           <button
-            className="bg-red-700 text-white p-3 w-40 rounded-md"
+            className="bg-red-700 text-white p-3 lg:w-40 sm:w-32 mx-2 rounded-md"
             onClick={(e) => handleDeleteDoneTask(e)}
           >
             Delete Done Task
           </button>
           <button
-            className="bg-red-700 text-white p-3 w-40 rounded-md"
+            className="bg-red-700 text-white p-3 lg:w-40 sm:w-32 mx-2 rounded-md"
             onClick={(e) => HandleDeleteAll(e)}
           >
             Delete All Task
